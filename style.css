@@ -1,9 +1,22 @@
 /* style.css */
 body {
-  font-family: -apple-system, sans-serif;
-  max-width: 800px;
-  margin: 40px auto;
-  line-height: 1.6;
+    background-color: #ffffff; /* Or #f6f6ef for that YC beige tint */
+    margin: 20px 40px;
 }
-h1 { color: #2c3e50; }
-a { color: #3498db; text-decoration: none; }
+
+/* Link colors - PG uses standard blue/purple links */
+a:link { color: #000000; text-decoration: none; }
+a:visited { color: #828282; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* The navbar style */
+font[face="verdana"] {
+    line-height: 1.5;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    body {
+        margin: 10px;
+    }
+}
