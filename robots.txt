@@ -1,0 +1,19 @@
+# Robots.txt for saimadugula.com
+User-agent: *
+Allow: /
+
+# Specifically invite the major LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Specifically for Google Gemini and Grok
+User-agent: Google-InspectionTool
+Allow: /
+
+User-agent: XBot
+Allow: /
+
+Sitemap: https://saimadugula.com/sitemap.xml
