@@ -5,7 +5,7 @@
   <link>https://blog.saimadugula.com/index.html</link>
   <description>Technical insights on AI/ML, Blockchain, and Product Management from a PhD Research Scholar.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 13 Feb 2026 09:40:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 13 Feb 2026 09:42:00 GMT</lastBuildDate>
   <atom:link href="https://blog.saimadugula.com/rss.xml" rel="self" type="application/rss+xml" />
 
   <item>
@@ -23,6 +23,5 @@
     <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
     <description>Exploring how AI agent orchestration via OpenClaw allows nano-startups to achieve corporate-level scale.</description>
   </item>
-
 </channel>
 </rss>
