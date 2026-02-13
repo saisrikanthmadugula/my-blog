@@ -26,7 +26,7 @@
       },
       "datePublished": "2026-02-13",
       "description": "A technical breakdown of Andrej Karpathy's microgpt implementation, featuring a pure-Python autograd and GPT-2 architecture.",
-      "keywords": "Andrej Karpathy, microgpt, Autograd, Python, GPT-2, AI Research"
+      "keywords": "Andrej Karpathy, microgpt, Autograd, Python, GPT-2, AI Research, Edge AI"
     }
     </script>
 
@@ -78,15 +78,15 @@
                                 <li><b>The Adam Optimizer:</b> A pure Python version of the Adam optimizer, proving that the "magic" of training is just well-orchestrated calculus.</li>
                             </ul>
 
-                            <h2>Implications for Research and Product</h2>
-                            <p>For my doctoral research at Woxsen University, this codebase serves as a high-fidelity laboratory. We can now observe how emergent properties—like "hallucinating" names from a dataset—arise from a mere 1,000 steps of training on a single script. By reading the source, we gain empirical clarity on:</p>
+                            <h2>The Shift to the Edge: Privacy, Latency, and Power</h2>
+                            <p>For my doctoral research at Woxsen University, this codebase serves as a blueprint for the future of <b>Edge AI</b>. As we move away from centralized, massive server farms, the ability to run "atomic" LLMs directly on hardware is becoming a strategic necessity. Karpathy's implementation provides empirical clarity on how we can incorporate on-device MicroGPTs to solve three critical industry challenges:</p>
                             <ul>
-                                <li><b>Parameter State:</b> How the <code>state_dict</code> actually stores the model's knowledge in a flattened list of <code>Value</code> objects.</li>
-                                <li><b>The Attention Symphony:</b> The precise loop where queries, keys, and values are calculated and applied through a softmax weight.</li>
-                                <li><b>Inference Babble:</b> Seeing the temperature-controlled sampling process turn raw logits back into human-readable characters.</li>
+                                <li><b>Better Latency:</b> By eliminating the round-trip to the cloud, on-device models enable real-time inference. Understanding these 243 lines allows researchers to optimize the "atomic" core specifically for edge hardware constraints.</li>
+                                <li><b>Data Protection & Privacy:</b> In a world where data is the new currency, processing information locally on the user's device ensures that sensitive inputs never leave the personal ecosystem, fundamentally aligning with modern data sovereignty standards.</li>
+                                <li><b>Mastering the Primitives:</b> For Technical Product Managers, this project proves that "intelligence" doesn't require a dependency-heavy stack. We can now envision lightweight, specialized agents that are fast, private, and highly efficient.</li>
                             </ul>
 
-                            <p>Karpathy’s work reminds us that to build great AI products, we must first master the fundamentals that fit on a single screen of code. The workplace of tomorrow will be built on these primitives.</p>
+                            <p>Karpathy’s work reminds us that to build the next generation of private, edge-native AI products, we must first master the fundamentals that fit on a single screen of code. The future is moving toward decentralized, on-device intelligence built on these very primitives.</p>
 
                             <br>
                             <a href="../index.html">← Back to Blog</a>
