@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Karpathy's MicroGPT: Atomic Intelligence | Sai Srikanth Madugula</title>
+    <meta name="description" content="PhD Scholar Sai Srikanth Madugula analyzes the technical logic of Andrej Karpathy's 243-line microgpt and its role in demystifying LLMs.">
+    <meta name="author" content="Sai Srikanth Madugula">
+
+    <meta property="og:title" content="MicroGPT: Atomic Intelligence in 243 Lines">
+    <meta property="og:description" content="A deep dive into the dependency-free Python GPT implementation that explains how AI actually works.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://saimadugula.com/posts/microgpt-black-box.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box",
+      "author": {
+        "@type": "Person",
+        "name": "Sai Srikanth Madugula",
+        "jobTitle": "PhD Research Scholar & Technical Product Manager"
+      },
+      "datePublished": "2026-02-13",
+      "description": "A technical breakdown of Andrej Karpathy's microgpt implementation, featuring a pure-Python autograd and GPT-2 architecture.",
+      "keywords": "Andrej Karpathy, microgpt, Autograd, Python, GPT-2, AI Research"
+    }
+    </script>
+
+    <link rel="stylesheet" href="../style.css"> 
+    <style>
+        /* Paul Graham Inspired Styles with Blue Links */
+        a:link, a:visited { color: #0000EE; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        h1 { color: #0000EE; font-family: verdana; font-size: 24px; }
+        h2 { font-family: verdana; font-size: 18px; margin-top: 25px; }
+        body { font-family: verdana; line-height: 1.5; color: #000; }
+        code { background-color: #f6f6ef; padding: 2px 4px; border-radius: 4px; }
+    </style>
+</head>
+<body bgcolor="#ffffff">
+    <table width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <table width="100%" style="padding: 10px 0px; border-bottom: 1px solid #eee;">
+                    <tr>
+                        <td>
+                            <font size="2">
+                                <a href="https://saimadugula.com">Home</a> | 
+                                <a href="../index.html">Blog</a> | 
+                                <a href="https://cv.saimadugula.com">CV</a>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <table width="100%" cellspacing="0" cellpadding="0" style="max-width: 700px;">
+                    <tr>
+                        <td>
+                            <h1>Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box</h1>
+                            
+                            <p>
+                                <i>By Sai Srikanth Madugula, PhD Research Scholar & Product Manager | February 13, 2026</i>
+                            </p>
+
+                            <p>The release of <a href="https://karpathy.ai/microgpt.html" target="_blank">microgpt</a> by Andrej Karpathy is a foundational moment for AI transparency. In exactly 243 lines of pure, dependency-free Python, Karpathy has implemented the complete GPT algorithm from scratch. As a PhD scholar investigating AI and Blockchain, I see this as the ultimate tool for moving beyond the "black box" narrative of Large Language Models (LLMs).</p>
+
+                            <h2>The Architecture of Simplicity</h2>
+                            <p>Unlike modern frameworks that hide complexity behind optimized CUDA kernels, <code>microgpt</code> exposes the raw mathematical machinery. The code implements:</p>
+                            <ul>
+                                <li><b>The Autograd Engine:</b> A custom <code>Value</code> class that handles the recursive chain rule for backpropagation without any external libraries.</li>
+                                <li><b>GPT-2 Primitives:</b> Atomic implementations of RMSNorm, Multi-head Attention, and MLP blocks, following the GPT-2 lineage with modernizations like ReLU.</li>
+                                <li><b>The Adam Optimizer:</b> A pure Python version of the Adam optimizer, proving that the "magic" of training is just well-orchestrated calculus.</li>
+                            </ul>
+
+                            <h2>Implications for Research and Product</h2>
+                            <p>For my doctoral research at Woxsen University, this codebase serves as a high-fidelity laboratory. We can now observe how emergent properties—like "hallucinating" names from a dataset—arise from a mere 1,000 steps of training on a single script. By reading the source, we gain empirical clarity on:</p>
+                            <ul>
+                                <li><b>Parameter State:</b> How the <code>state_dict</code> actually stores the model's knowledge in a flattened list of <code>Value</code> objects.</li>
+                                <li><b>The Attention Symphony:</b> The precise loop where queries, keys, and values are calculated and applied through a softmax weight.</li>
+                                <li><b>Inference Babble:</b> Seeing the temperature-controlled sampling process turn raw logits back into human-readable characters.</li>
+                            </ul>
+
+                            <p>Karpathy’s work reminds us that to build great AI products, we must first master the fundamentals that fit on a single screen of code. The workplace of tomorrow will be built on these primitives.</p>
+
+                            <br>
+                            <a href="../index.html">← Back to Blog</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
