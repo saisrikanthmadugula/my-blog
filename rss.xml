@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Sai Srikanth Madugula's Blog</title>
+  <link>https://saimadugula.com/index.html</link>
+  <description>Technical insights on AI/ML, Blockchain, and Product Management from a PhD Research Scholar.</description>
+  <language>en-us</language>
+  <lastBuildDate>Fri, 13 Feb 2026 00:00:00 GMT</lastBuildDate>
+  <atom:link href="https://saimadugula.com/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box</title>
+    <link>https://saimadugula.com/posts/microgpt-black-box.html</link>
+    <guid>https://saimadugula.com/posts/microgpt-black-box.html</guid>
+    <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
+    <description>A technical breakdown of Andrej Karpathy's microgpt implementation and its implications for edge-native AI and data privacy.</description>
+  </item>
+
+  <item>
+    <title>Orchestrating the Future: How OpenClaw Empowers the Solo Founder to Rival Giants</title>
+    <link>https://saimadugula.com/posts/orchestrating-future-openclaw.html</link>
+    <guid>https://saimadugula.com/posts/orchestrating-future-openclaw.html</guid>
+    <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
+    <description>Exploring how AI agent orchestration via OpenClaw allows nano-startups to achieve corporate-level scale.</description>
+  </item>
+
+</channel>
+</rss>
