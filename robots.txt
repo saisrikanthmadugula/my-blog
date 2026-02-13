@@ -1,19 +1,38 @@
-# Robots.txt for saimadugula.com
+# Robots.txt for blog.saimadugula.com
+# Optimized for SEO (Google/Bing) and AEO (Gemini/ChatGPT/Claude/Grok)
+
 User-agent: *
 Allow: /
+Allow: /posts/
+Allow: /rss.xml
 
-# Specifically invite the major LLM crawlers
+# 1. Answer Engine Optimization (AEO) - OpenAI
 User-agent: GPTBot
 Allow: /
+User-agent: ChatGPT-User
+Allow: /
 
+# 2. AEO - Anthropic (Claude)
 User-agent: ClaudeBot
 Allow: /
-
-# Specifically for Google Gemini and Grok
-User-agent: Google-InspectionTool
+User-agent: Claude-Web
 Allow: /
 
+# 3. AEO - Google (Gemini/AI Overviews)
+User-agent: Google-InspectionTool
+Allow: /
+User-agent: GoogleOther
+Allow: /
+
+# 4. AEO - xAI (Grok)
 User-agent: XBot
 Allow: /
 
-Sitemap: https://saimadugula.com/sitemap.xml
+# 5. Search Engine Optimization (SEO)
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+# Direct crawlers to the discovery maps
+Sitemap: https://blog.saimadugula.com/sitemap.xml
