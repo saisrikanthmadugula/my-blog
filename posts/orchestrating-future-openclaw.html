@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Orchestrating the Future: OpenClaw & AI Agents | Sai Srikanth Madugula</title>
     
     <meta name="description" content="How OpenClaw and autonomous AI agents allow solo founders to achieve corporate scale.">
     <meta name="author" content="Sai Srikanth Madugula">
-
-    <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_72333061541e46820462057d3910c2" defer></script>
 
     <link rel="stylesheet" href="../style.css"> 
     <style>
@@ -17,19 +14,19 @@
         a:hover { text-decoration: underline; }
         h1 { color: #0000EE; margin-bottom: 5px; }
         
-        /* Ensure the container has dimensions so the widget isn't hidden */
+        /* Fixed height and display for Lyket widget visibility */
         .vote-container {
-            display: flex;
-            align-items: center;
+            display: block; 
             margin: 15px 0;
-            min-height: 40px; 
+            min-height: 50px; /* Forces space for the widget */
         }
         .vote-label {
             font-family: verdana;
             font-size: 12px;
             color: #444;
-            margin-right: 12px;
             font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
         }
         .bottom-vote {
             margin-top: 40px;
@@ -66,7 +63,7 @@
                                     <span class="vote-label">Upvote:</span>
                                     <div 
                                       data-lyket-type="upvote" 
-                                      data-lyket-id="openclaw-article-001" 
+                                      data-lyket-id="openclaw-article-v2" 
                                       data-lyket-namespace="blog"
                                       data-lyket-template="reddit"
                                     ></div>
@@ -79,9 +76,6 @@
                                 <h3>The End of the "Small Team" Limit</h3>
                                 <p>OpenClaw, as an open-source framework for building and orchestrating virtual AI agents, is set to smash the limitations of human capital. Imagine a single human founder deploying a team of AI "employees"—Engineers, Marketers, and Researchers—acting as a conductor directing a symphony of digital intelligence.</p>
 
-                                <h3>From Micro-Startup to Macro-Impact</h3>
-                                <p>OpenClaw allows a single person to define objectives and let their virtual workforce execute. This dramatically lowers the barrier to entry, enabling "nano-startups" to achieve the scale and output previously reserved for large corporations.</p>
-
                                 <h3>The Human Element: Our New Role</h3>
                                 <p>Our role evolves. As product managers and researchers, our core value shifts toward <b>Vision Setting</b>, <b>Strategic Orchestration</b>, and <b>Ethical Guidance</b>. The workplace of tomorrow will be a symphony conducted by humans, with AI agents as our instruments.</p>
 
@@ -89,7 +83,7 @@
                                     <span class="vote-label">Support this research:</span>
                                     <div 
                                       data-lyket-type="upvote" 
-                                      data-lyket-id="openclaw-article-001" 
+                                      data-lyket-id="openclaw-article-v2" 
                                       data-lyket-namespace="blog"
                                       data-lyket-template="reddit"
                                     ></div>
@@ -104,5 +98,7 @@
             </td>
         </tr>
     </table>
+
+    <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_72333061541e46820462057d3910c2"></script>
 </body>
 </html>
