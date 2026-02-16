@@ -5,8 +5,16 @@
   <link>https://blog.saimadugula.com/index.html</link>
   <description>Technical insights on AI/ML, Blockchain, and Product Management from a PhD Research Scholar.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 13 Feb 2026 09:42:00 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 16 Feb 2026 17:05:00 GMT</lastBuildDate>
   <atom:link href="https://blog.saimadugula.com/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>The Agentic Shift: Peter Steinberger Joins OpenAI to Scale OpenClaw</title>
+    <link>https://blog.saimadugula.com/posts/steinberger-openai-openclaw.html</link>
+    <guid isPermaLink="true">https://blog.saimadugula.com/posts/steinberger-openai-openclaw.html</guid>
+    <pubDate>Mon, 16 Feb 2026 09:00:00 GMT</pubDate>
+    <description>An analysis of why OpenAI supporting the OpenClaw foundation is a seminal moment for autonomous AI agents and open-source orchestration.</description>
+  </item>
 
   <item>
     <title>Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box</title>
@@ -23,5 +31,6 @@
     <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
     <description>Exploring how AI agent orchestration via OpenClaw allows nano-startups to achieve corporate-level scale.</description>
   </item>
+
 </channel>
 </rss>
