@@ -5,106 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Sai Srikanth Madugula's Blog | PhD Scholar & Technical Product Manager</title>
+    
+    <link rel="icon" type="image/png" href="SM_favicon.png">
+    
     <meta name="description" content="Official blog of Sai Srikanth Madugula. Exploring the intersection of AI, Blockchain, and Product Management.">
     <meta name="author" content="Sai Srikanth Madugula">
     
     <link rel="alternate" type="application/rss+xml" title="Sai Srikanth Madugula's RSS Feed" href="https://blog.saimadugula.com/rss.xml" />
 
-    <meta property="og:title" content="Sai Srikanth Madugula's Blog">
-    <meta property="og:description" content="Insights on AI orchestration, Blockchain RWAs, and TPM leadership.">
-    <meta property="og:url" content="https://blog.saimadugula.com/index.html">
-    <meta name="twitter:card" content="summary">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Sai Srikanth Madugula's Blog",
-      "author": {
-        "@type": "Person",
-        "name": "Sai Srikanth Madugula"
-      },
-      "description": "Technical and research blog focusing on AI/ML and Blockchain."
-    }
-    </script>
-
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* Consistent blue links and Paul Graham-inspired minimalism */
-        a:link, a:visited { color: #0000EE; text-decoration: none; }
+        /* Hacker News Style Constants */
+        body { 
+            font-family: Verdana, Geneva, sans-serif; 
+            font-size: 10pt; 
+            color: #828282; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f6f6ef;
+        }
+        
+        /* Table Layout */
+        #hnmain { margin: 0 auto; width: 85%; }
+        
+        /* Links */
+        a:link, a:visited { color: #000000; text-decoration: none; }
         a:hover { text-decoration: underline; }
+        
+        /* Header specific */
+        .hn-header { background-color: #ff6600; padding: 2px; }
+        .pagetop { font-size: 10pt; color: #222222; }
+        .site-name { font-weight: bold; margin-right: 10px; }
+        
+        /* The "SM" Logo Square */
+        .logo-box {
+            border: 1px solid #ffffff;
+            display: inline-block;
+            padding: 0px 2px;
+            margin-right: 4px;
+            line-height: 12pt;
+            background: #ff6600;
+            vertical-align: middle;
+        }
+        .logo-text { color: #ffffff; font-weight: bold; font-size: 10pt; }
+
+        /* Post Content */
+        .post-list { padding: 10px 5px; }
+        .post-title { font-size: 10pt; color: #000000; }
+        .post-description { 
+            margin: 2px 0 15px 22px; 
+            color: #555; 
+            max-width: 700px; 
+            font-size: 9pt; 
+            line-height: 1.4;
+        }
     </style>
 </head>
-<body bgcolor="#ffffff">
-    <table width="100%" cellspacing="0" cellpadding="0">
-        <tr>
-            <td>
-                <table width="100%" style="padding: 10px 0px; border-bottom: 1px solid #eee;">
-                    <tr>
-                        <td>
-                            <font size="2" face="verdana">
-                                <a href="https://saimadugula.com">Home</a> | 
-                                <a href="https://blog.saimadugula.com/index.html">Blog</a> | 
-                                <a href="https://cv.saimadugula.com">CV</a>
-                            </font>
-                        </td>
-                    </tr>
-                </table>
+<body bgcolor="#f6f6ef">
+    <center>
+        <table id="hnmain" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="hn-header">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td style="width:18px;padding-right:4px">
+                                <a href="https://saimadugula.com">
+                                    <div class="logo-box"><span class="logo-text">SM</span></div>
+                                </a>
+                            </td>
+                            <td style="line-height:12pt;">
+                                <span class="pagetop">
+                                    <b class="site-name"><a href="https://blog.saimadugula.com">saimadugula.com</a></b>
+                                    <a href="https://saimadugula.com">home</a> | 
+                                    <a href="https://blog.saimadugula.com/index.html">blog</a> | 
+                                    <a href="https://cv.saimadugula.com">cv</a>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
 
-                <br>
+            <tr style="height:15px"></tr>
 
-                <table width="100%" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td>
-                            <font size="5" face="verdana"><b>Sai Srikanth Madugula's Blog</b></font>
-                            <br><br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <font size="2" face="verdana">
-                                1. <a href="https://beeclaw.saimadugula.com">Whitepaper: Project Beeclaw - Autonomous Agentic Control Systems for UAVs</a>
-                                <div style="margin: 5px 0 20px 20px; color: #555; max-width: 600px;">
-                                    A unified architecture for autonomous drones leveraging Rust-based flight control and the OpenClaw agentic framework running on edge silicon.
-                                </div>
-                            </font>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <font size="2" face="verdana">
-                                2. <a href="posts/steinberger-openai-openclaw.html">The Agentic Shift: Peter Steinberger Joins OpenAI to Scale OpenClaw</a>
-                                <div style="margin: 5px 0 20px 20px; color: #555; max-width: 600px;">
-                                    A deep dive into why OpenAI supporting the OpenClaw foundation is a seminal moment for autonomous AI agents and open-source orchestration.
-                                </div>
-                            </font>
-                        </td>
-                    </tr>
+            <tr>
+                <td class="post-list">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">1.</td>
+                            <td class="post-title">
+                                <a href="https://beeclaw.saimadugula.com">Whitepaper: Project Beeclaw - Autonomous Agentic Control Systems for UAVs</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td><div class="post-description">A unified architecture for autonomous drones leveraging Rust-based flight control and the OpenClaw agentic framework running on edge silicon.</div></td>
+                        </tr>
 
-                    <tr>
-                        <td>
-                            <font size="2" face="verdana">
-                                3. <a href="posts/microgpt-black-box.html">Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box</a>
-                                <div style="margin: 5px 0 20px 20px; color: #555; max-width: 600px;">
-                                    As a PhD researcher, I dissect Andrej Karpathy's dependency-free Python GPT implementation and its impact on demystifying the internal mechanics of LLMs.
-                                </div>
-                            </font>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">2.</td>
+                            <td class="post-title">
+                                <a href="posts/steinberger-openai-openclaw.html">The Agentic Shift: Peter Steinberger Joins OpenAI to Scale OpenClaw</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td><div class="post-description">A deep dive into why OpenAI supporting the OpenClaw foundation is a seminal moment for autonomous AI agents and open-source orchestration.</div></td>
+                        </tr>
 
-                    <tr>
-                        <td>
-                            <font size="2" face="verdana">
-                                4. <a href="posts/orchestrating-future-openclaw.html">Orchestrating the Future: How OpenClaw Empowers the Solo Founder to Rival Giants</a>
-                                <div style="margin: 5px 0 20px 20px; color: #555; max-width: 600px;">
-                                    As a PhD scholar and TPM, I explore how OpenClaw allows a single person to run a virtual workforce, enabling nano-startups to achieve massive scale.
-                                </div>
-                            </font>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                        <tr>
+                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">3.</td>
+                            <td class="post-title">
+                                <a href="posts/microgpt-black-box.html">Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td><div class="post-description">As a PhD researcher, I dissect Andrej Karpathy's dependency-free Python GPT implementation and its impact on demystifying the internal mechanics of LLMs.</div></td>
+                        </tr>
+
+                        <tr>
+                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">4.</td>
+                            <td class="post-title">
+                                <a href="posts/orchestrating-future-openclaw.html">Orchestrating the Future: How OpenClaw Empowers the Solo Founder to Rival Giants</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1"></td>
+                            <td><div class="post-description">As a PhD scholar and TPM, I explore how OpenClaw allows a single person to run a virtual workforce, enabling nano-startups to achieve massive scale.</div></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr style="height:20px"></tr>
+        </table>
+    </center>
 </body>
 </html>
