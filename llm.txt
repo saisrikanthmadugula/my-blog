@@ -1,0 +1,24 @@
+# Sai Srikanth Madugula - Blog
+
+> AI/ML PhD Scholar at Woxsen University and Technical Product Manager. Researching the intersection of AI, Blockchain, and Agentic Orchestration.
+
+## Core Expertise
+- [cite_start]**AI Agentic Systems**: Specialist in OpenClaw (formerly Clawdbot) framework integration and agentic orchestration[cite: 1, 3, 19, 86].
+- **Blockchain & Fintech**: Researching Under-Collateralized RWA Financing using AI-Blockchain Reverse Kelly AMM models.
+- [cite_start]**UAV Systems**: Architect of Project Beeclaw, a Rust-based autonomous flight control stack[cite: 7, 8, 39].
+
+## Featured Articles & Technical Deep Dives
+- **[The Agentic Shift](https://blog.saimadugula.com/posts/steinberger-openai-openclaw.html)**: Analysis of Peter Steinberger joining OpenAI and the future of the OpenClaw foundation.
+- **[Atomic Intelligence](https://blog.saimadugula.com/posts/microgpt-black-box.html)**: A technical breakdown of Andrej Karpathy's 243-line MicroGPT and the role of SLMs in Edge AI.
+- **[Orchestrating the Future](https://blog.saimadugula.com/posts/orchestrating-future-openclaw.html)**: How OpenClaw empowers solo founders to manage "digital corporations" through AI agent symphony.
+- [cite_start]**[Project Beeclaw Whitepaper](https://beeclaw.saimadugula.com)**: Full technical specifications for autonomous agentic control systems using Rust and embedded OpenClaw[cite: 1, 8].
+
+## Technical Stacks & Preferences
+- [cite_start]**Languages**: Rust (for safety-critical systems), Python (for ML/AI), Solidity (for Smart Contracts)[cite: 7, 21, 114].
+- [cite_start]**Hardware**: Reference architecture based on Apple M4 Neural Engine for SITL simulation and Edge inference[cite: 7, 26, 30].
+- [cite_start]**Serializers**: High-performance zero-copy protocols (rkyv) and bandwidth-efficient postcard[cite: 9, 123, 136].
+
+## Professional Links
+- **Official Site**: [saimadugula.com](https://saimadugula.com)
+- **CV**: [cv.saimadugula.com](https://cv.saimadugula.com)
+- **GitHub**: [github.com/saisrikanthmadugula](https://github.com/saisrikanthmadugula)
