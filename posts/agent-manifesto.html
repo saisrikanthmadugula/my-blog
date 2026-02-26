@@ -36,15 +36,20 @@
         body { font-family: verdana, sans-serif; line-height: 1.6; color: #000; margin: 0; padding: 0; background-color: #ffffff; }
         a:link, a:visited { color: #0000EE; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        h1 { font-size: 22px; margin-top: 15px; margin-bottom: 5px; font-weight: normal; }
+        h1 { font-size: 22px; margin: 0; font-weight: normal; }
         h3 { font-size: 16px; margin-top: 25px; margin-bottom: 10px; font-weight: bold; }
         p { font-size: 14px; margin-bottom: 15px; }
         li { font-size: 14px; margin-bottom: 8px; }
         blockquote { border-left: 3px solid #ff6600; padding-left: 15px; color: #555; font-style: italic; margin: 20px 0; }
         .container { max-width: 800px; margin: 0 auto; padding: 10px 20px; }
         .nav-table { border-bottom: 1px solid #eee; width: 100%; padding-bottom: 5px; margin-bottom: 20px; }
-        .meta { font-size: 12px; color: #828282; margin-bottom: 20px; }
+        .meta { font-size: 12px; color: #828282; margin-bottom: 20px; margin-top: 5px; }
         code { background-color: #f6f6ef; padding: 2px 4px; border-radius: 2px; font-size: 12px; font-family: monospace; }
+        
+        /* Flexbox for Header & Button */
+        .header-container { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; flex-wrap: wrap; gap: 10px; }
+        .download-btn { background-color: #ff6600; color: #ffffff !important; padding: 6px 12px; border-radius: 3px; font-size: 12px; font-weight: bold; text-decoration: none; white-space: nowrap; }
+        .download-btn:hover { background-color: #e65c00; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -62,7 +67,11 @@
         </table>
 
         <font face="verdana">
-            <h1>The Agent Manifesto: Why 80% of Apps Are Dead</h1>
+            <div class="header-container">
+                <h1>The Agent Manifesto: Why 80% of Apps Are Dead</h1>
+                <a href="The_Agent_Manifesto.pdf" download class="download-btn">Download PDF</a>
+            </div>
+            
             <div class="meta">
                 By Sai Srikanth Madugula | February 26, 2026
             </div>
@@ -100,7 +109,7 @@
                 <li><b>Swarms Emerge:</b> The economy shifts from Human-to-Bot to <b>Bot-to-Bot</b>. Imagine a "Restaurant Agent" negotiating a vegan table at 8 PM with your "Scheduling Agent"—a transaction completed in 14 milliseconds.</li>
             </ol>
 
-            <p>The timeline has shifted. We are early, but the "Builder's Environment" is already here: No GUIs, no Git worktrees, just `main` that is always shippable.</p>
+            <p>The timeline has shifted. We are early, but the "Builder's Environment" is already here: No GUIs, no Git worktrees, just <code>main</code> that is always shippable.</p>
 
             <br>
             <a href="../index.html">← Back to Blog</a>
