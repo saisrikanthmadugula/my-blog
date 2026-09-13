@@ -12,168 +12,262 @@
     <meta name="author" content="Sai Srikanth Madugula">
     
     <link rel="alternate" type="application/rss+xml" title="Sai Srikanth Madugula's RSS Feed" href="https://blog.saimadugula.com/rss.xml" />
-
     <link rel="llm-plugin" href="https://blog.saimadugula.com/llms.txt">
 
     <style>
-        /* Hacker News Style Constants */
-        body { 
-            font-family: Verdana, Geneva, sans-serif; 
-            font-size: 10pt; 
-            color: #828282; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f6f6ef;
+        :root {
+            --bg-color: #f7f6f2; /* Warm beige reading background */
+            --text-color: #1a1a1a;
+            --muted-text: #666666;
+            --border-color: #e5e5e5;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --muted-text: #999999;
+            --border-color: #333333;
         }
         
-        /* Table Layout */
-        #hnmain { margin: 0 auto; width: 85%; }
-        
-        /* Links */
-        a:link, a:visited { color: #000000; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        
-        /* Header specific */
-        .hn-header { background-color: #ff6600; padding: 2px; }
-        .pagetop { font-size: 10pt; color: #222222; }
-        .site-name { font-weight: bold; margin-right: 10px; }
-        
-        /* The "SM" Logo Square */
-        .logo-box {
-            border: 1px solid #ffffff;
-            display: inline-block;
-            padding: 0px 2px;
-            margin-right: 4px;
-            line-height: 12pt;
-            background: #ff6600;
-            vertical-align: middle;
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            justify-content: center;
         }
-        .logo-text { color: #ffffff; font-weight: bold; font-size: 10pt; }
 
-        /* Post Content */
-        .post-list { padding: 10px 5px; }
-        .post-title { font-size: 10pt; color: #000000; }
-        .post-description { 
-            margin: 2px 0 15px 22px; 
-            color: #555; 
-            max-width: 700px; 
-            font-size: 9pt; 
-            line-height: 1.4;
+        /* Layout Structure */
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            padding: 60px 20px;
+            gap: 60px;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 200px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 60px;
+            height: max-content;
+        }
+        .sidebar h3 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--muted-text);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            margin-bottom: 16px;
+        }
+        .sidebar a {
+            color: var(--muted-text);
+            text-decoration: none;
+            font-size: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            transition: color 0.2s ease;
+        }
+        .sidebar a:hover {
+            color: var(--text-color);
+        }
+        .sidebar a.active {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 650px;
+            flex-grow: 1;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        /* Article List Styling */
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+        .post-item h2 {
+            font-size: 26px;
+            line-height: 1.3;
+            margin: 0 0 12px 0;
+            font-weight: normal;
+        }
+        .post-item a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        .post-item a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+        .post-description {
+            color: var(--muted-text);
+            font-size: 18px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--text-color);
+            border-radius: 15px;
+            width: 44px;
+            height: 24px;
+            cursor: pointer;
+            position: relative;
+            padding: 0;
+            transition: border-color 0.3s ease;
+        }
+        .theme-toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), background-color 0.3s ease;
+        }
+        [data-theme="dark"] .theme-toggle::after {
+            transform: translateX(20px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container { 
+                flex-direction: column; 
+                padding: 30px 20px;
+                gap: 40px;
+            }
+            .sidebar { 
+                position: relative; 
+                top: 0; 
+                width: 100%;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 20px;
+            }
+            .sidebar ul {
+                display: flex;
+                gap: 20px;
+            }
+            .sidebar li { margin-bottom: 0; }
         }
     </style>
 </head>
-<body bgcolor="#f6f6ef">
-    <center>
-        <table id="hnmain" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-                <td class="hn-header">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <td style="width:18px;padding-right:4px">
-                                <a href="https://saimadugula.com">
-                                    <div class="logo-box"><span class="logo-text">SM</span></div>
-                                </a>
-                            </td>
-                            <td style="line-height:12pt;">
-                                <span class="pagetop">
-                                    <b class="site-name"><a href="https://blog.saimadugula.com">Sai Madugula</a></b>
-                                    <a href="https://saimadugula.com">home</a> | 
-                                    <a href="https://blog.saimadugula.com/index.html">blog</a> | 
-                                    <a href="https://cv.saimadugula.com">cv</a>
-                                </span>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+<body>
 
-            <tr style="height:15px"></tr>
+<div class="container">
+    <!-- Left Navigation Sidebar -->
+    <aside class="sidebar">
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="https://saimadugula.com">Home</a></li>
+            <li><a href="https://blog.saimadugula.com/index.html" class="active">Essays & Blog</a></li>
+            <li><a href="https://cv.saimadugula.com">CV</a></li>
+        </ul>
+    </aside>
 
-            <tr>
-                <td class="post-list">
-                    <table border="0" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">1.</td>
-                            <td class="post-title">
-                                <a href="posts/architecture-of-agency.html">The Architecture of Agency: From Local Compute to Swarm Intelligence</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="1"></td>
-                            <td><div class="post-description">An analysis of the structural shift from cloud-based apps to local, context-aware agent swarms, and defining the digital soul in Markdown.</div></td>
-                        </tr>
+    <!-- Main Content Area -->
+    <main class="content">
+        <header class="header-top">
+            <div>Sai Srikanth Madugula</div>
+            <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()"></button>
+        </header>
 
-                        <tr>
-                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">2.</td>
-                            <td class="post-title">
-                                <a href="posts/openclaw-paradigm.html">The OpenClaw Paradigm: The End of Software</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="1"></td>
-                            <td><div class="post-description">A manifesto on the shift from legacy software to autonomous agent swarms, exploring community intelligence and the "Lobster in the Cave" philosophy.</div></td>
-                        </tr>
+        <div class="post-list">
+            <!-- Post 1 -->
+            <article class="post-item">
+                <h2><a href="posts/architecture-of-agency.html">The Architecture of Agency: From Local Compute to Swarm Intelligence</a></h2>
+                <p class="post-description">An analysis of the structural shift from cloud-based apps to local, context-aware agent swarms, and defining the digital soul in Markdown.</p>
+            </article>
 
-                        <tr>
-                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">3.</td>
-                            <td class="post-title">
-                                <a href="posts/agent-manifesto.html">The Agent Manifesto: A Treatise on the End of Software (And Your Beginning)</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="1"></td>
-                            <td><div class="post-description">Insights on the shift from the App Era to the Agent Era, covering the obsolescence of friction, local intelligence, and swarm economics.</div></td>
-                        </tr>
+            <!-- Post 2 -->
+            <article class="post-item">
+                <h2><a href="posts/openclaw-paradigm.html">The OpenClaw Paradigm: The End of Software</a></h2>
+                <p class="post-description">A manifesto on the shift from legacy software to autonomous agent swarms, exploring community intelligence and the "Lobster in the Cave" philosophy.</p>
+            </article>
 
-                        <tr>
-                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">4.</td>
-                            <td class="post-title">
-                                <a href="https://beeclaw.saimadugula.com">Whitepaper: Project Beeclaw - Autonomous Agentic Control Systems for UAVs</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="1"></td>
-                            <td><div class="post-description">A unified architecture for autonomous drones leveraging Rust-based flight control and the OpenClaw agentic framework running on edge silicon.</div></td>
-                        </tr>
+            <!-- Post 3 -->
+            <article class="post-item">
+                <h2><a href="posts/agent-manifesto.html">The Agent Manifesto: A Treatise on the End of Software (And Your Beginning)</a></h2>
+                <p class="post-description">Insights on the shift from the App Era to the Agent Era, covering the obsolescence of friction, local intelligence, and swarm economics.</p>
+            </article>
 
-                        <tr>
-                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">5.</td>
-                            <td class="post-title">
-                                <a href="posts/steinberger-openai-openclaw.html">The Agentic Shift: Peter Steinberger Joins OpenAI to Scale OpenClaw</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="1"></td>
-                            <td><div class="post-description">A deep dive into why OpenAI supporting the OpenClaw foundation is a seminal moment for autonomous AI agents and open-source orchestration.</div></td>
-                        </tr>
+            <!-- Post 4 -->
+            <article class="post-item">
+                <h2><a href="https://beeclaw.saimadugula.com">Whitepaper: Project Beeclaw - Autonomous Agentic Control Systems for UAVs</a></h2>
+                <p class="post-description">A unified architecture for autonomous drones leveraging Rust-based flight control and the OpenClaw agentic framework running on edge silicon.</p>
+            </article>
 
-                        <tr>
-                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">6.</td>
-                            <td class="post-title">
-                                <a href="posts/microgpt-black-box.html">Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="1"></td>
-                            <td><div class="post-description">As a PhD researcher, I dissect Andrej Karpathy's dependency-free Python GPT implementation and its impact on demystifying the internal mechanics of LLMs.</div></td>
-                        </tr>
+            <!-- Post 5 -->
+            <article class="post-item">
+                <h2><a href="posts/steinberger-openai-openclaw.html">The Agentic Shift: Peter Steinberger Joins OpenAI to Scale OpenClaw</a></h2>
+                <p class="post-description">A deep dive into why OpenAI supporting the OpenClaw foundation is a seminal moment for autonomous AI agents and open-source orchestration.</p>
+            </article>
 
-                        <tr>
-                            <td valign="top" align="right" style="padding-right:5px; color:#828282;">7.</td>
-                            <td class="post-title">
-                                <a href="posts/orchestrating-future-openclaw.html">Orchestrating the Future: How OpenClaw Empowers the Solo Founder to Rival Giants</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="1"></td>
-                            <td><div class="post-description">As a PhD scholar and TPM, I explore how OpenClaw allows a single person to run a virtual workforce, enabling nano-startups to achieve massive scale.</div></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+            <!-- Post 6 -->
+            <article class="post-item">
+                <h2><a href="posts/microgpt-black-box.html">Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box</a></h2>
+                <p class="post-description">As a PhD researcher, I dissect Andrej Karpathy's dependency-free Python GPT implementation and its impact on demystifying the internal mechanics of LLMs.</p>
+            </article>
 
-            <tr style="height:20px"></tr>
-        </table>
-    </center>
+            <!-- Post 7 -->
+            <article class="post-item">
+                <h2><a href="posts/orchestrating-future-openclaw.html">Orchestrating the Future: How OpenClaw Empowers the Solo Founder to Rival Giants</a></h2>
+                <p class="post-description">As a PhD scholar and TPM, I explore how OpenClaw allows a single person to run a virtual workforce, enabling nano-startups to achieve massive scale.</p>
+            </article>
+        </div>
+    </main>
+</div>
+
+<!-- Theme Toggle Logic -->
+<script>
+    function toggleTheme() {
+        const body = document.documentElement;
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    // Check for saved user preference on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+</script>
+
 </body>
 </html>
