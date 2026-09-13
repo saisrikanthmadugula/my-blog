@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>The Agentic Shift: Peter Steinberger Joins OpenAI to Scale OpenClaw | Sai Srikanth Madugula</title>
     
     <link rel="icon" type="image/png" href="../SM_Favicon.png">
@@ -32,6 +33,11 @@
     </script>
 
     <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* Dario Amodei Aesthetic Variables */
         :root {
             --bg-color: #f5f4ef; /* Signature warm beige */
@@ -111,6 +117,12 @@
         
         .sidebar a:hover {
             color: var(--text-color);
+        }
+
+        /* Active highlight for scroll spy */
+        .sidebar a.active {
+            color: var(--text-color);
+            font-weight: 700;
         }
 
         /* Main Content Area */
@@ -299,8 +311,9 @@
     </main>
 </div>
 
-<!-- Theme Toggle Logic -->
+<!-- Theme Toggle Logic & Scroll Spy -->
 <script>
+    // Theme Toggle Functionality
     function toggleTheme() {
         const body = document.documentElement;
         if (body.getAttribute('data-theme') === 'dark') {
@@ -316,6 +329,35 @@
     if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
     }
+
+    // Scroll Spy Functionality for Sidebar Contents
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('h2[id]');
+        const navLinks = document.querySelectorAll('.sidebar-section:last-child ul li a');
+
+        function highlightNavigation() {
+            let scrollPosition = window.scrollY;
+            let currentActiveId = null;
+
+            sections.forEach(section => {
+                // Offset by 150px to trigger the highlight slightly before the heading hits the top
+                const sectionTop = section.offsetTop - 150; 
+                if (scrollPosition >= sectionTop) {
+                    currentActiveId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (currentActiveId && link.getAttribute('href') === `#${currentActiveId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNavigation);
+        highlightNavigation(); // Trigger on initial load
+    });
 </script>
 
 </body>
