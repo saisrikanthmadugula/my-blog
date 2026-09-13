@@ -16,7 +16,7 @@
 
     <style>
         :root {
-            --bg-color: #f7f6f2;
+            --bg-color: #f7f6f2; /* Warm beige reading background */
             --text-color: #1a1a1a;
             --muted-text: #666666;
             --border-color: #e5e5e5;
@@ -40,6 +40,7 @@
             justify-content: center;
         }
 
+        /* Layout Structure */
         .container {
             display: flex;
             width: 100%;
@@ -48,6 +49,7 @@
             gap: 60px;
         }
 
+        /* Sidebar Navigation */
         .sidebar {
             width: 200px;
             flex-shrink: 0;
@@ -87,6 +89,7 @@
             font-weight: 600;
         }
 
+        /* Main Content */
         .content {
             max-width: 650px;
             flex-grow: 1;
@@ -103,6 +106,7 @@
             padding-bottom: 20px;
         }
 
+        /* Article List Styling */
         .post-list {
             display: flex;
             flex-direction: column;
@@ -130,6 +134,7 @@
             line-height: 1.6;
         }
 
+        /* Dark Mode Toggle Button */
         .theme-toggle {
             background: none;
             border: 2px solid var(--text-color);
@@ -156,6 +161,7 @@
             transform: translateX(20px);
         }
 
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .container { 
                 flex-direction: column; 
@@ -180,6 +186,7 @@
 <body>
 
 <div class="container">
+    <!-- Left Navigation Sidebar -->
     <aside class="sidebar">
         <h3>Navigation</h3>
         <ul>
@@ -189,6 +196,7 @@
         </ul>
     </aside>
 
+    <!-- Main Content Area -->
     <main class="content">
         <header class="header-top">
             <div>Sai Srikanth Madugula</div>
@@ -196,25 +204,19 @@
         </header>
 
         <div class="post-list">
-            <!-- Active Post 1 -->
-            <article class="post-item">
-                <h2><a href="posts/agent-manifesto.html">The Agent Manifesto: A Treatise on the End of Software (And Your Beginning)</a></h2>
-                <p class="post-description">Insights on the shift from the App Era to the Agent Era, covering the obsolescence of friction, local intelligence, and swarm economics.</p>
-            </article>
-
-            <!-- Active Post 2 -->
+            <!-- Post 1 -->
             <article class="post-item">
                 <h2><a href="posts/steinberger-openai-openclaw.html">The Agentic Shift: Peter Steinberger Joins OpenAI to Scale OpenClaw</a></h2>
                 <p class="post-description">A deep dive into why OpenAI supporting the OpenClaw foundation is a seminal moment for autonomous AI agents and open-source orchestration.</p>
             </article>
 
-            <!-- Active Post 3 -->
+            <!-- Post 2 -->
             <article class="post-item">
                 <h2><a href="posts/microgpt-black-box.html">Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box</a></h2>
                 <p class="post-description">As a PhD researcher, I dissect Andrej Karpathy's dependency-free Python GPT implementation and its impact on demystifying the internal mechanics of LLMs.</p>
             </article>
 
-            <!-- Active Post 4 -->
+            <!-- Post 3 -->
             <article class="post-item">
                 <h2><a href="posts/orchestrating-future-openclaw.html">Orchestrating the Future: How OpenClaw Empowers the Solo Founder to Rival Giants</a></h2>
                 <p class="post-description">As a PhD scholar and TPM, I explore how OpenClaw allows a single person to run a virtual workforce, enabling nano-startups to achieve massive scale.</p>
@@ -223,6 +225,7 @@
     </main>
 </div>
 
+<!-- Theme Toggle Logic -->
 <script>
     function toggleTheme() {
         const body = document.documentElement;
@@ -235,6 +238,7 @@
         }
     }
 
+    // Check for saved user preference on load
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
