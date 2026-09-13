@@ -34,110 +34,279 @@
     </script>
 
     <style>
-        /* Hacker News Style Constants */
-        body { 
-            font-family: Verdana, Geneva, sans-serif; 
-            font-size: 10pt; 
-            color: #000000; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f6f6ef;
+        /* Dario Amodei Aesthetic Variables */
+        :root {
+            --bg-color: #f5f4ef; /* Signature warm beige */
+            --text-color: #1a1a1a;
+            --muted-text: #666666;
+            --border-color: #e0ded8;
+            --link-color: #1a1a1a;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --muted-text: #999999;
+            --border-color: #333333;
+            --link-color: #e0e0e0;
         }
         
-        /* Table Layout */
-        #hnmain { margin: 0 auto; width: 85%; background-color: #f6f6ef; }
-        
-        /* Links */
-        a:link, a:visited { color: #000000; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .body-links a:link, .body-links a:visited { color: #0000EE; } /* Classic blue for article body */
-
-        /* Header specific */
-        .hn-header { background-color: #ff6600; padding: 2px; }
-        .pagetop { font-size: 10pt; color: #222222; }
-        .site-name { font-weight: bold; margin-right: 10px; }
-        
-        /* The "SM" Logo Square */
-        .logo-box {
-            border: 1px solid #ffffff;
-            display: inline-block;
-            padding: 0px 2px;
-            margin-right: 4px;
-            line-height: 12pt;
-            background: #ff6600;
-            vertical-align: middle;
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            font-size: 19px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            justify-content: center;
         }
-        .logo-text { color: #ffffff; font-weight: bold; font-size: 10pt; }
 
-        /* Article Content Styling */
-        .article-body { padding: 20px 5px; background-color: #f6f6ef; max-width: 800px; }
-        h1 { font-size: 14pt; margin: 10px 0; line-height: 1.2; }
-        h3 { font-size: 11pt; margin-top: 25px; }
-        .meta-text { color: #828282; font-size: 9pt; margin-bottom: 20px; }
-        code { background-color: #e8e8e7; padding: 2px 4px; font-family: monospace; }
-        p, li { line-height: 1.5; margin-bottom: 1em; }
+        /* Layout Structure */
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            padding: 60px 20px;
+            gap: 80px;
+        }
+
+        /* Sidebar Navigation & Contents */
+        .sidebar {
+            width: 220px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 60px;
+            height: max-content;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        .sidebar h3 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar li {
+            margin-bottom: 14px;
+        }
+        
+        .sidebar a {
+            color: var(--muted-text);
+            text-decoration: none;
+            font-size: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            transition: color 0.2s ease;
+        }
+        
+        .sidebar a:hover {
+            color: var(--text-color);
+        }
+
+        /* Main Content Area */
+        .content {
+            max-width: 650px;
+            flex-grow: 1;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+            font-family: 'Georgia', serif;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin: 0 0 20px 0;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 26px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .date {
+            color: var(--muted-text);
+            margin-bottom: 40px;
+            font-size: 17px;
+        }
+
+        p {
+            margin-bottom: 24px;
+        }
+
+        ul.body-list {
+            margin-bottom: 24px;
+            padding-left: 20px;
+        }
+        
+        ul.body-list li {
+            margin-bottom: 10px;
+        }
+
+        a.body-link {
+            color: var(--link-color);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+
+        code {
+            background-color: var(--border-color);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+        }
+
+        .bottom-links {
+            margin-top: 80px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+        }
+
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--text-color);
+            border-radius: 15px;
+            width: 44px;
+            height: 24px;
+            cursor: pointer;
+            position: relative;
+            padding: 0;
+            transition: border-color 0.3s ease;
+        }
+        
+        .theme-toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), background-color 0.3s ease;
+        }
+        
+        [data-theme="dark"] .theme-toggle::after {
+            transform: translateX(20px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .container { 
+                flex-direction: column; 
+                padding: 40px 20px;
+                gap: 40px;
+            }
+            .sidebar { 
+                display: none; 
+            }
+        }
     </style>
 </head>
-<body bgcolor="#f6f6ef">
-    <center>
-        <table id="hnmain" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-                <td class="hn-header">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <td style="width:18px;padding-right:4px">
-                                <a href="https://saimadugula.com">
-                                    <div class="logo-box"><span class="logo-text">SM</span></div>
-                                </a>
-                            </td>
-                            <td style="line-height:12pt;">
-                                <span class="pagetop">
-                                    <b class="site-name"><a href="https://blog.saimadugula.com">Sai Madugula</a></b>
-                                    <a href="https://saimadugula.com">home</a> | 
-                                    <a href="https://blog.saimadugula.com/index.html">blog</a> | 
-                                    <a href="https://cv.saimadugula.com">cv</a>
-                                </span>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+<body>
 
-            <tr>
-                <td class="article-body body-links">
-                    <font face="verdana">
-                        <h1>Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box</h1>
-                        
-                        <p class="meta-text">
-                            By <a href="https://cv.saimadugula.com">Sai Srikanth Madugula</a>, PhD Research Scholar & Product Manager | February 13, 2026
-                        </p>
+<div class="container">
+    <!-- Left Navigation & Contents Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-section">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="https://saimadugula.com">Home</a></li>
+                <li><a href="https://blog.saimadugula.com">Blog</a></li>
+                <li><a href="https://cv.saimadugula.com">CV</a></li>
+            </ul>
+        </div>
 
-                        <p>The release of <a href="https://karpathy.ai/microgpt.html" target="_blank">microgpt</a> by Andrej Karpathy is a foundational moment for AI transparency. In exactly 243 lines of pure, dependency-free Python, Karpathy has implemented the complete GPT algorithm from scratch. As a PhD scholar investigating AI and Blockchain, I see this as the ultimate tool for moving beyond the "black box" narrative of Large Language Models (LLMs).</p>
+        <div class="sidebar-section">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#architecture">The Architecture of Simplicity</a></li>
+                <li><a href="#shift-to-edge">The Shift to the Edge</a></li>
+            </ul>
+        </div>
+    </aside>
 
-                        <h3>The Architecture of Simplicity</h3>
-                        <p>Unlike modern frameworks that hide complexity behind optimized CUDA kernels, <code>microgpt</code> exposes the raw mathematical machinery. The code implements:</p>
-                        <ul>
-                            <li><b>The Autograd Engine:</b> A custom <code>Value</code> class that handles the recursive chain rule for backpropagation without any external libraries.</li>
-                            <li><b>GPT-2 Primitives:</b> Atomic implementations of RMSNorm, Multi-head Attention, and MLP blocks, following the GPT-2 lineage with modernizations like ReLU.</li>
-                            <li><b>The Adam Optimizer:</b> A pure Python version of the Adam optimizer, proving that the "magic" of training is just well-orchestrated calculus.</li>
-                        </ul>
+    <!-- Main Content Area -->
+    <main class="content">
+        <header class="header-top">
+            <div>Sai Srikanth Madugula</div>
+            <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()"></button>
+        </header>
 
-                        <h3>The Shift to the Edge: Privacy, Latency, and Power</h3>
-                        <p>For my doctoral research at Woxsen University, this codebase serves as a blueprint for the future of <b>Edge AI</b>. As we move away from centralized, massive server farms, the ability to run "atomic" LLMs directly on hardware is becoming a strategic necessity. Karpathy's implementation provides empirical clarity on how we can incorporate on-device MicroGPTs to solve critical industry challenges:</p>
-                        <ul>
-                            <li><b>Better Latency:</b> By eliminating the round-trip to the cloud, on-device models enable real-time inference.</li>
-                            <li><b>Data Protection & Privacy:</b> Local processing ensures that sensitive inputs never leave the personal ecosystem, fundamentally aligning with modern data sovereignty standards.</li>
-                            <li><b>Mastering the Primitives:</b> For Technical Product Managers, this project proves that "intelligence" doesn't require a dependency-heavy stack. We can now envision lightweight, specialized agents that are fast, private, and highly efficient.</li>
-                        </ul>
+        <h1>Atomic Intelligence: How Karpathy’s 243-Line MicroGPT Dismantles the LLM Black Box</h1>
+        <div class="date">February 13, 2026</div>
 
-                        <p>Karpathy’s work reminds us that to build the next generation of private, edge-native AI products, we must first master the fundamentals that fit on a single screen of code. The future is moving toward decentralized, on-device intelligence built on these very primitives.</p>
+        <p>The release of <a href="https://karpathy.ai/microgpt.html" target="_blank" class="body-link">microgpt</a> by Andrej Karpathy is a foundational moment for AI transparency. In exactly 243 lines of pure, dependency-free Python, Karpathy has implemented the complete GPT algorithm from scratch. As a PhD scholar investigating AI and Blockchain, I see this as the ultimate tool for moving beyond the "black box" narrative of Large Language Models (LLMs).</p>
 
-                        <br>
-                        <p style="font-size: 8pt;"><a href="../index.html">← Back to Blog</a></p>
-                    </font>
-                </td>
-            </tr>
-        </table>
-    </center>
+        <h2 id="architecture">The Architecture of Simplicity</h2>
+        <p>Unlike modern frameworks that hide complexity behind optimized CUDA kernels, <code>microgpt</code> exposes the raw mathematical machinery. The code implements:</p>
+        
+        <ul class="body-list">
+            <li><b>The Autograd Engine:</b> A custom <code>Value</code> class that handles the recursive chain rule for backpropagation without any external libraries.</li>
+            <li><b>GPT-2 Primitives:</b> Atomic implementations of RMSNorm, Multi-head Attention, and MLP blocks, following the GPT-2 lineage with modernizations like ReLU.</li>
+            <li><b>The Adam Optimizer:</b> A pure Python version of the Adam optimizer, proving that the "magic" of training is just well-orchestrated calculus.</li>
+        </ul>
+
+        <h2 id="shift-to-edge">The Shift to the Edge: Privacy, Latency, and Power</h2>
+        <p>For my doctoral research at Woxsen University, this codebase serves as a blueprint for the future of <b>Edge AI</b>. As we move away from centralized, massive server farms, the ability to run "atomic" LLMs directly on hardware is becoming a strategic necessity. Karpathy's implementation provides empirical clarity on how we can incorporate on-device MicroGPTs to solve critical industry challenges:</p>
+        
+        <ul class="body-list">
+            <li><b>Better Latency:</b> By eliminating the round-trip to the cloud, on-device models enable real-time inference.</li>
+            <li><b>Data Protection & Privacy:</b> Local processing ensures that sensitive inputs never leave the personal ecosystem, fundamentally aligning with modern data sovereignty standards.</li>
+            <li><b>Mastering the Primitives:</b> For Technical Product Managers, this project proves that "intelligence" doesn't require a dependency-heavy stack. We can now envision lightweight, specialized agents that are fast, private, and highly efficient.</li>
+        </ul>
+
+        <p>Karpathy’s work reminds us that to build the next generation of private, edge-native AI products, we must first master the fundamentals that fit on a single screen of code. The future is moving toward decentralized, on-device intelligence built on these very primitives.</p>
+
+        <div class="bottom-links">
+            <a href="https://blog.saimadugula.com" class="body-link">← Back to Blog</a>
+        </div>
+    </main>
+</div>
+
+<!-- Theme Toggle Logic -->
+<script>
+    function toggleTheme() {
+        const body = document.documentElement;
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+</script>
+
 </body>
 </html>
